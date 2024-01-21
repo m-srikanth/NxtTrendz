@@ -41,10 +41,11 @@ class CartSummary extends Component {
                 <p className="total-items">{cartList.length} Items in cart</p>
                 <Popup
                   trigger={
-                    <button type="button" className="checkout-button d-sm-none">
+                    <button type="button" className="checkout-button">
                       Checkout
                     </button>
                   }
+                  modal
                   position="center"
                 >
                   {close => (
@@ -80,44 +81,6 @@ class CartSummary extends Component {
                   )}
                 </Popup>
               </div>
-              <Popup
-                trigger={
-                  <button type="button" className="checkout-button d-lg-none">
-                    Checkout
-                  </button>
-                }
-                position="right center"
-              >
-                {close => (
-                  <div className="div1">
-                    <button type="button" onClick={() => close()}>
-                      close
-                    </button>
-                    <input
-                      type="checkbox"
-                      id="check"
-                      onClick={this.changeStat}
-                    />
-                    <label htmlFor="check">Cash on Delivery</label>
-                    {isDisabled && (
-                      <button
-                        type="button"
-                        className="checkout-button"
-                        onClick={this.sucPrint}
-                      >
-                        Confirm Order
-                      </button>
-                    )}
-                    {isSuc && <p>Your order has been placed successfully</p>}
-                    <h1 className="order-total-value">
-                      <span className="order-total-label">Total Cost:</span> Rs{' '}
-                      {total}
-                      /-
-                    </h1>
-                    <p>Number of Items: {itemsNo}</p>
-                  </div>
-                )}
-              </Popup>
             </>
           )
         }}
